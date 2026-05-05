@@ -29,7 +29,7 @@ namespace LaboLayoutControls
             emailTextBox.Clear();
         }
 
-        private void onClearButtonClicked(object sender, RoutedEventArgs e)
+        private void OnClearButtonClicked(object sender, RoutedEventArgs e)
         {
             ClearInput();
         }
@@ -52,6 +52,38 @@ namespace LaboLayoutControls
             timeLabel.Content = now.ToLongTimeString();
             pxlImage.Source = new BitmapImage(new Uri("https://pxl-digital.pxl.be/web/image/1811-b4b5a8f4/logo_pxl_digital.png", UriKind.Absolute));
             pxlImage.Stretch = Stretch.Uniform;
+        }
+
+        private void OnChecked(object sender, RoutedEventArgs e)
+        {
+            if (sender.GetType() == typeof(RadioButton))
+            {
+                 {
+                    RadioButton rb = (RadioButton)sender;
+
+                    if (rb.IsChecked == true)
+                    {
+                        rb.FontWeight = FontWeights.Bold;
+                    }
+                    else
+                    {
+                        rb.FontWeight = FontWeights.Normal;
+                    }
+                }
+            }
+            else if (sender.GetType() == typeof(CheckBox))
+            {
+                CheckBox cb = (CheckBox)sender;
+
+                if (cb.IsChecked == true)
+                {
+                    cb.FontWeight = FontWeights.Bold;
+                }
+                else
+                {
+                    cb.FontWeight = FontWeights.Normal;
+                }
+            }
         }
     }
 }
