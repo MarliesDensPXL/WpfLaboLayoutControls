@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LaboLayoutControls"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" Loaded="OnWindowLoaded">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -33,7 +33,12 @@
             <Button x:Name="saveButton" Content="Opslaan" Width="150" FontSize="16" Margin="10" Click="OnSaveButtonClicked"/>
             <Button x:Name="clearButton" Content="Wissen" Width="150" FontSize="16" Margin="10" Click="onClearButtonClicked"/>
         </WrapPanel>
-        <Label Grid.Row="3" Grid.ColumnSpan="2" Content="Footer" Background="LightGray" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="10" BorderBrush="Black" BorderThickness="2" Margin="2"/>
-    </Grid>
+        <DockPanel Grid.Row="3" Grid.ColumnSpan="2"  Background="LightGray" Margin="2">
+            <Label x:Name="dateLabel" DockPanel.Dock="Left" />
+            <Label x:Name="timeLabel" DockPanel.Dock="Right"/>
+            <Image x:Name="pxlImage" Stretch="Uniform" Height="75" />
+
+        </DockPanel>
+     </Grid>
     
 </Window>

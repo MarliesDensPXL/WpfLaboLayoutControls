@@ -8,6 +8,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static System.Net.WebRequestMethods;
 
 namespace LaboLayoutControls
 {
@@ -42,6 +43,14 @@ namespace LaboLayoutControls
         private void OnCancelButtonClicked(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+        private void OnWindowLoaded(object sender, RoutedEventArgs e)
+        {
+            DateTime now = DateTime.Now;
+            dateLabel.Content = now.ToLongDateString();
+            timeLabel.Content = now.ToLongTimeString();
+            pxlImage.Source = new BitmapImage(new Uri("https://pxl-digital.pxl.be/web/image/1811-b4b5a8f4/logo_pxl_digital.png", UriKind.Absolute));
         }
     }
 }
