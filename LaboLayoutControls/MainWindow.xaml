@@ -29,9 +29,9 @@
         </StackPanel> 
         <Label Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" Content="Rij 2, Column 2" Background="LightGoldenrodYellow" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="Black" BorderThickness="2" Margin="2"/>
         <WrapPanel Grid.Row="2" Grid.Column="0" Background="LightGreen" Margin="2" Orientation="Horizontal">
-            <Button x:Name="cancelButton" Content="Annuleren" Width="150" FontSize="16" Margin="10"/>
-            <Button x:Name="saveButton" Content="Opslaan" Width="150" FontSize="16" Margin="10"/>
-            <Button x:Name="clearButton" Content="Wissen" Width="150" FontSize="16" Margin="10"/>
+            <Button x:Name="cancelButton" Content="Annuleren" Width="150" FontSize="16" Margin="10" Click="OnCancelButtonClicked"/>
+            <Button x:Name="saveButton" Content="Opslaan" Width="150" FontSize="16" Margin="10" Click="OnSaveButtonClicked"/>
+            <Button x:Name="clearButton" Content="Wissen" Width="150" FontSize="16" Margin="10" Click="onClearButtonClicked"/>
         </WrapPanel>
         <Label Grid.Row="3" Grid.ColumnSpan="2" Content="Footer" Background="LightGray" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="10" BorderBrush="Black" BorderThickness="2" Margin="2"/>
     </Grid>

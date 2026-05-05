@@ -20,5 +20,28 @@ namespace LaboLayoutControls
         {
             InitializeComponent();
         }
+
+        public void ClearInput()
+        {
+            firstNameTextBox.Clear();
+            lastNameTextBox.Clear();
+            emailTextBox.Clear();
+        }
+
+        private void onClearButtonClicked(object sender, RoutedEventArgs e)
+        {
+            ClearInput();
+        }
+
+        private void OnSaveButtonClicked(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Registratie student succesvol");
+            ClearInput();
+        }
+
+        private void OnCancelButtonClicked(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }
