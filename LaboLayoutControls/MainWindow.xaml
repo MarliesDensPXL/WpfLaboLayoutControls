@@ -7,6 +7,30 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
 
+        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Content="Registratie nieuwe student" Background="LightBlue" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="Black" BorderThickness="2" Margin="2" FontSize="36"/>
+        <StackPanel Grid.Row="1" Grid.Column="0" Background="LightCoral" Orientation="Vertical">
+            <Label Content="Voornaam:" />
+            <TextBox x:Name="firstNameTextBox" Margin="5,0,10,10"/>
+            <Label Content="Achternaam:" />
+            <TextBox x:Name="lastNameTextBox" Margin="5,0,10,10"/>
+            <Label Content="E-mail:" />
+            <TextBox x:Name="emailTextBox" Margin="5,0,10,10"/>
+
+        </StackPanel> 
+        <Label Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" Content="Rij 2, Column 2" Background="LightGoldenrodYellow" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="Black" BorderThickness="2" Margin="2"/>
+        <Label Grid.Row="2" Grid.Column="0" Content="Rij 3, Column 1" Background="LightGreen" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="Black" BorderThickness="2" Margin="2"/>
+        <Label Grid.Row="3" Grid.ColumnSpan="2" Content="Footer" Background="LightGray" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="10" BorderBrush="Black" BorderThickness="2" Margin="2"/>
     </Grid>
+    
 </Window>
