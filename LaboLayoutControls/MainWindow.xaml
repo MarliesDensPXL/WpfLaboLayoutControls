@@ -17,8 +17,9 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-
-        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Content="Registratie nieuwe student" Background="LightBlue" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="Black" BorderThickness="2" Margin="2" FontSize="36"/>
+        <Viewbox Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Stretch="Uniform">
+            <Label  Content="Registratie nieuwe student" Background="LightBlue" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="Black" BorderThickness="2" Margin="2" FontSize="36"/>
+        </Viewbox>
         <StackPanel Grid.Row="1" Grid.Column="0" Background="LightCoral" Margin="2" Orientation="Vertical">
             <Label Content="Voornaam:" />
             <TextBox x:Name="firstNameTextBox" Margin="5,0,10,10"/>
