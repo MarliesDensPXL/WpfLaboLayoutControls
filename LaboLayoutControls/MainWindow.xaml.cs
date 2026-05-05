@@ -51,6 +51,7 @@ namespace LaboLayoutControls
             dateLabel.Content = now.ToLongDateString();
             timeLabel.Content = now.ToLongTimeString();
             pxlImage.Source = new BitmapImage(new Uri("https://pxl-digital.pxl.be/web/image/1811-b4b5a8f4/logo_pxl_digital.png", UriKind.Absolute));
+            pxlImage.Stretch = Stretch.Uniform;
         }
     }
 }

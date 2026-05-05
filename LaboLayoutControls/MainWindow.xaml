@@ -36,7 +36,7 @@
         <DockPanel Grid.Row="3" Grid.ColumnSpan="2"  Background="LightGray" Margin="2">
             <Label x:Name="dateLabel" DockPanel.Dock="Left" />
             <Label x:Name="timeLabel" DockPanel.Dock="Right"/>
-            <Image x:Name="pxlImage" Stretch="Uniform" Height="75" />
+            <Image x:Name="pxlImage" Height="75" />
 
         </DockPanel>
      </Grid>
