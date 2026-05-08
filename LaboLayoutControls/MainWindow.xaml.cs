@@ -118,15 +118,16 @@ namespace LaboLayoutControls
         private bool CloseCheck()
         {
             MessageBoxResult result = MessageBox.Show("Weet je zeker dat je wil afsluiten?", "Afsluiten", MessageBoxButton.YesNo);
-            if (result == MessageBoxResult.No)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
+            //if (result == MessageBoxResult.No)
+            //{
+            //    return false;
+            //}
+            //else
+            //{
+            //    return true;
+            //}
 
+            return result == MessageBoxResult.Yes;
             
         }
     }
