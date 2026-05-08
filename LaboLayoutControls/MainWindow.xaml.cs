@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -8,6 +9,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 using static System.Net.WebRequestMethods;
 
 namespace LaboLayoutControls
@@ -17,9 +19,30 @@ namespace LaboLayoutControls
     /// </summary>
     public partial class MainWindow : Window
     {
+        private DispatcherTimer _timer;
+        
         public MainWindow()
         {
-            InitializeComponent();
+            InitializeComponent();            
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            timeLabel.Content = DateTime.Now.ToLongTimeString();
+        }
+
+        private void OnWindowLoaded(object sender, RoutedEventArgs e)
+        {
+            _timer = new DispatcherTimer();
+            _timer.Interval = TimeSpan.FromSeconds(1);
+            _timer.Tick += Timer_Tick;
+            _timer.Start();
+
+            DateTime now = DateTime.Now;
+            dateLabel.Content = now.ToLongDateString();
+            //timeLabel.Content = now.ToLongTimeString();
+            pxlImage.Source = new BitmapImage(new Uri("https://pxl-digital.pxl.be/web/image/1811-b4b5a8f4/logo_pxl_digital.png", UriKind.Absolute));
+            pxlImage.Stretch = Stretch.Uniform;
         }
 
         public void ClearInput()
@@ -38,21 +61,8 @@ namespace LaboLayoutControls
         {
             MessageBox.Show("Registratie student succesvol");
             ClearInput();
-        }
-
-        private void OnCancelButtonClicked(object sender, RoutedEventArgs e)
-        {
-            Close();
-        }
-
-        private void OnWindowLoaded(object sender, RoutedEventArgs e)
-        {
-            DateTime now = DateTime.Now;
-            dateLabel.Content = now.ToLongDateString();
-            timeLabel.Content = now.ToLongTimeString();
-            pxlImage.Source = new BitmapImage(new Uri("https://pxl-digital.pxl.be/web/image/1811-b4b5a8f4/logo_pxl_digital.png", UriKind.Absolute));
-            pxlImage.Stretch = Stretch.Uniform;
-        }
+        }    
+               
 
         private void OnChecked(object sender, RoutedEventArgs e)
         {
@@ -84,6 +94,27 @@ namespace LaboLayoutControls
                     cb.FontWeight = FontWeights.Normal;
                 }
             }
+        }
+
+        private void OnClosing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            CloseCheck();
+        }
+
+        private void OnCancelButtonClicked(object sender, RoutedEventArgs e)
+        {
+            CloseCheck();
+        }
+
+        private void CloseCheck()
+        {
+            MessageBoxResult result = MessageBox.Show("Weet je zeker dat je wil afsluiten?", "Afsluiten", MessageBoxButton.YesNo);
+            if (result == MessageBoxResult.No)
+            {
+                return;
+            }
+
+            Close();
         }
     }
 }
