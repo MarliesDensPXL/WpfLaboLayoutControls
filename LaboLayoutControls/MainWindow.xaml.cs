@@ -98,23 +98,36 @@ namespace LaboLayoutControls
 
         private void OnClosing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            CloseCheck();
+            bool wantToClose = CloseCheck();
+
+            if (!wantToClose)
+            { 
+                e.Cancel = true; 
+            }
         }
 
         private void OnCancelButtonClicked(object sender, RoutedEventArgs e)
         {
-            CloseCheck();
+            if (CloseCheck())
+            {
+                Close();
+            }
+            
         }
 
-        private void CloseCheck()
+        private bool CloseCheck()
         {
             MessageBoxResult result = MessageBox.Show("Weet je zeker dat je wil afsluiten?", "Afsluiten", MessageBoxButton.YesNo);
             if (result == MessageBoxResult.No)
             {
-                return;
+                return false;
+            }
+            else
+            {
+                return true;
             }
 
-            Close();
+            
         }
     }
 }
