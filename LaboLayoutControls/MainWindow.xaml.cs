@@ -95,14 +95,18 @@ namespace LaboLayoutControls
                 }
             }
         }
+        private bool _isClosingConfirmed = false;
 
         private void OnClosing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            bool wantToClose = CloseCheck();
+            if (!_isClosingConfirmed)
+            {
+                bool wantToClose = CloseCheck();
 
-            if (!wantToClose)
-            { 
-                e.Cancel = true; 
+                if (!wantToClose)
+                {
+                    e.Cancel = true;
+                }
             }
         }
 
@@ -110,6 +114,7 @@ namespace LaboLayoutControls
         {
             if (CloseCheck())
             {
+                _isClosingConfirmed = true;
                 Close();
             }
             
