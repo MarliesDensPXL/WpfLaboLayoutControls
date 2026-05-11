@@ -95,28 +95,29 @@ namespace LaboLayoutControls
                 }
             }
         }
-        private bool _isClosingConfirmed = false;
+        // private bool _isClosingConfirmed = false;
 
         private void OnClosing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            if (!_isClosingConfirmed)
-            {
+            
                 bool wantToClose = CloseCheck();
 
                 if (!wantToClose)
                 {
                     e.Cancel = true;
                 }
-            }
+            
         }
 
         private void OnCancelButtonClicked(object sender, RoutedEventArgs e)
         {
-            if (CloseCheck())
-            {
-                _isClosingConfirmed = true;
-                Close();
-            }
+
+            this.Close();
+            //if (CloseCheck())
+            //{
+            //   //  _isClosingConfirmed = true;
+            //    Close();
+            //}
             
         }
 
